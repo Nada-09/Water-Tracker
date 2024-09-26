@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var on = true
+    @State private var plus = 0
     var body: some View {
         VStack {
             Text("Water Tracker 💦💦")
             
             HStack{
                 Text("Apple Health")
-                Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) { }
+                Toggle(isOn: $on) { }
             }
             
             HStack{
-                Text("Cups to drink per day")
-                Stepper(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(4)/*@END_MENU_TOKEN@*/, in: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Range@*/1...10/*@END_MENU_TOKEN@*/) { }
-                }
+                Text("")
+                Stepper("Cups to drink per day \(plus)", value: $plus)  }
+                
             
             Button("Continue") { }
             
